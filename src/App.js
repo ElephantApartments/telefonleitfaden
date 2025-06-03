@@ -3,73 +3,78 @@ import logo from "./logo.jpg";
 
 export default function TelefonleitfadenApp() {
   const steps = {
-  start: {
-    question: "Worum geht es beim Anruf?",
-    options: [
-      { label: "Buchungsanfrage", next: "buchung_rueckfrage" },
-      { label: "Verlängerung", next: "verlaengerung_1" },
-      { label: "Aktueller Gast", next: "gast_1" },
-      { label: "Handwerker", next: "handwerker_1" },
-      { label: "Werbeanruf", next: "werbung" }
-    ]
-  },
-  buchung_rueckfrage: {
-    question: "Stellt der Anrufer zuerst Rückfragen zu Wohnungen, Betten oder Standorten?",
-    options: [
-      { label: "Ja", next: "buchung_info" },
-      { label: "Nein, direkt Anfrage", next: "buchung_1" }
-    ]
-  },
-  buchung_info: {
-    question: "Antwort: Wir bieten voll ausgestattete Apartments für 1–6 Personen in Neumünster, Kiel und Itzehoe. Einzel-/Doppel-/Dreibettzimmer, WLAN, Küche, Waschmaschine, Parkplatz.",
-    options: [{ label: "Weiter zu Buchungsdetails", next: "buchung_1" }]
-  },
-  buchung_1: { question: "Für welchen Zeitraum wird eine Unterkunft gesucht?", input: true, next: "buchung_2" },
-  buchung_2: { question: "In welcher Stadt oder Region?", input: true, next: "buchung_3" },
-  buchung_3: { question: "Wie viele Personen reisen an?", input: true, next: "buchung_4" },
-  buchung_4: { question: "Welche Zimmerart und wie viele Zimmer werden benötigt?", input: true, next: "buchung_5" },
-  buchung_5: { question: "Ist der Aufenthalt beruflich oder privat?", input: true, next: "buchung_6" },
-  buchung_6: { question: "Gibt es ein Budget?", input: true, next: "buchung_7" },
-  buchung_7: { question: "Gibt es besondere Wünsche?", input: true, next: "buchung_8" },
-  buchung_8: { question: "Bitte Kontaktdaten aufnehmen:", inputs: ["Name", "E-Mail", "Telefonnummer"], next: "ende" },
-  verlaengerung_1: { question: "Name der Firma oder auf wen läuft die Buchung?", input: true, next: "verlaengerung_2" },
-  verlaengerung_2: { question: "Wie lautet die aktuelle Buchungsdauer?", input: true, next: "verlaengerung_3" },
-  verlaengerung_3: { question: "Welche Wohnung bewohnt der Anrufer aktuell?", input: true, next: "verlaengerung_4" },
-  verlaengerung_4: {
-    question: "Bis wann soll verlängert werden? Hinweis: Bitte zusätzlich per E-Mail an buchung@elephant-apartments.com senden",
-    input: true,
-    next: "ende"
-  },
-  gast_1: {
-    question: "Bitte wähle das Anliegen des Gastes:",
-    options: [
-      { label: "WLAN funktioniert nicht", next: "gast_detail" },
-      { label: "Schlüsselproblem oder Check-in", next: "gast_detail" },
-      { label: "Frage zum Check-in", next: "gast_detail" },
-      { label: "Frage zur Abreise", next: "gast_detail" },
-      { label: "Mängel an der Wohnung", next: "gast_detail" },
-      { label: "Lärmbeschwerde / Störung", next: "gast_detail" }
-    ]
-  },
-  gast_detail: {
-    question: "Bitte trage nähere Infos zum Anliegen ein:",
-    inputs: ["Name", "E-Mail", "Telefonnummer"],
-    next: "ende"
-  },
-  handwerker_1: { question: "Welches Objekt oder welche Adresse betrifft es?", input: true, next: "handwerker_2" },
-  handwerker_2: { question: "Was genau soll gemacht werden?", input: true, next: "handwerker_3" },
-  handwerker_3: { question: "Gibt es einen Termin oder Beauftragenden?", input: true, next: "handwerker_4" },
-  handwerker_4: { question: "Wurde bereits mit jemandem gesprochen?", input: true, next: "ende" },
-  werbung: {
-    question: "Bitte senden Sie Ihr Angebot schriftlich an buchung@elephant-apartments.com",
-    options: [{ label: "Gespräch freundlich beenden", next: "ende" }]
-  },
-  ende: {
-    question: "Gespräch beendet oder weitergeleitet. Danke für den Anruf!",
-    summary: true,
-    restart: true
-  }
-};
+    start: {
+      question: "Worum geht es beim Anruf?",
+      options: [
+        { label: "Buchungsanfrage", next: "buchung_rueckfrage" },
+        { label: "Verlängerung", next: "verlaengerung_1" },
+        { label: "Aktueller Gast", next: "gast_1" },
+        { label: "Handwerker", next: "handwerker_1" },
+        { label: "Werbeanruf", next: "werbung" }
+      ]
+    },
+    buchung_rueckfrage: {
+      question: "Stellt der Anrufer zuerst Rückfragen zu Wohnungen, Betten oder Standorten?",
+      options: [
+        { label: "Ja", next: "buchung_info" },
+        { label: "Nein, direkt Anfrage", next: "buchung_1" }
+      ]
+    },
+    buchung_info: {
+      question: "Antwort: Wir bieten voll ausgestattete Apartments für 1–6 Personen in Neumünster, Kiel und Itzehoe. Einzel-/Doppel-/Dreibettzimmer, WLAN, Küche, Waschmaschine, Parkplatz.",
+      options: [{ label: "Weiter zu Buchungsdetails", next: "buchung_1" }]
+    },
+    buchung_1: { question: "Für welchen Zeitraum wird eine Unterkunft gesucht?", input: true, next: "buchung_2" },
+    buchung_2: { question: "In welcher Stadt oder Region?", input: true, next: "buchung_3" },
+    buchung_3: { question: "Wie viele Personen reisen an?", input: true, next: "buchung_4" },
+    buchung_4: { question: "Welche Zimmerart und wie viele Zimmer werden benötigt?", input: true, next: "buchung_5" },
+    buchung_5: { question: "Ist der Aufenthalt beruflich oder privat?", input: true, next: "buchung_6" },
+    buchung_6: { question: "Gibt es ein Budget?", input: true, next: "buchung_7" },
+    buchung_7: { question: "Gibt es besondere Wünsche?", input: true, next: "buchung_8" },
+    buchung_8: { question: "Bitte Kontaktdaten aufnehmen:", inputs: ["Name", "E-Mail", "Telefonnummer"], next: "ende" },
+    verlaengerung_1: { question: "Name der Firma oder auf wen läuft die Buchung?", input: true, next: "verlaengerung_2" },
+    verlaengerung_2: { question: "Wie lautet die aktuelle Buchungsdauer?", input: true, next: "verlaengerung_3" },
+    verlaengerung_3: { question: "Welche Wohnung bewohnt der Anrufer aktuell?", input: true, next: "verlaengerung_4" },
+    verlaengerung_4: {
+      question: "Bis wann soll verlängert werden? Hinweis: Bitte zusätzlich per E-Mail an buchung@elephant-apartments.com senden",
+      input: true,
+      next: "ende"
+    },
+    gast_1: {
+      question: "Bitte wähle das Anliegen des Gastes:",
+      options: [
+        { label: "WLAN funktioniert nicht", next: "gast_anliegen_detail" },
+        { label: "Schlüsselproblem oder Check-in", next: "gast_anliegen_detail" },
+        { label: "Frage zum Check-in", next: "gast_anliegen_detail" },
+        { label: "Frage zur Abreise", next: "gast_anliegen_detail" },
+        { label: "Mängel an der Wohnung", next: "gast_anliegen_detail" },
+        { label: "Lärmbeschwerde / Störung", next: "gast_anliegen_detail" }
+      ]
+    },
+    gast_anliegen_detail: {
+      question: "Bitte beschreibe das Anliegen möglichst genau:",
+      input: true,
+      next: "gast_detail"
+    },
+    gast_detail: {
+      question: "Bitte trage die Kontaktdaten des Gastes ein:",
+      inputs: ["Name", "E-Mail", "Telefonnummer"],
+      next: "ende"
+    },
+    handwerker_1: { question: "Welches Objekt oder welche Adresse betrifft es?", input: true, next: "handwerker_2" },
+    handwerker_2: { question: "Was genau soll gemacht werden?", input: true, next: "handwerker_3" },
+    handwerker_3: { question: "Gibt es einen Termin oder Beauftragenden?", input: true, next: "handwerker_4" },
+    handwerker_4: { question: "Wurde bereits mit jemandem gesprochen?", input: true, next: "ende" },
+    werbung: {
+      question: "Bitte senden Sie Ihr Angebot schriftlich an buchung@elephant-apartments.com",
+      options: [{ label: "Gespräch freundlich beenden", next: "ende" }]
+    },
+    ende: {
+      question: "Gespräch beendet oder weitergeleitet. Danke für den Anruf!",
+      summary: true,
+      restart: true
+    }
+  };
   const [step, setStep] = useState("start");
   const [answers, setAnswers] = useState({});
   const [inputValue, setInputValue] = useState("");
