@@ -31,9 +31,9 @@ export default function TelefonleitfadenApp() {
     buchung_5: { question: "Ist der Aufenthalt beruflich oder privat?", input: true, next: "buchung_6" },
     buchung_6: { question: "Gibt es ein Budget?", input: true, next: "buchung_7" },
     buchung_7: { question: "Gibt es besondere Wünsche?", input: true, next: "buchung_8" },
-    buchung_8: { question: "Bitte Kontaktdaten aufnehmen:", inputs: ["Name", "E-Mail", "Telefonnummer"], next: "ende" },
+    buchung_8: { question: "Bitte Kontaktdaten aufnehmen:", inputs: ["Name", "E-Mail", "Telefonnummer"], required: true, next: "ende" },
     verlaengerung_1: { question: "Name der Firma oder auf wen läuft die Buchung?", input: true, next: "verlaengerung_2" },
-    verlaengerung_2: { question: "Wie lautet die aktuelle Buchungsdauer?", input: true, next: "verlaengerung_3" },
+    verlaengerung_2: { question: "Bis wann geht die ursprüngliche Buchung?", input: true, next: "verlaengerung_3" },
     verlaengerung_3: { question: "Welche Wohnung bewohnt der Anrufer aktuell?", input: true, next: "verlaengerung_4" },
     verlaengerung_4: {
       question: "Bis wann soll verlängert werden? Hinweis: Bitte zusätzlich per E-Mail an buchung@elephant-apartments.com senden",
@@ -54,11 +54,17 @@ export default function TelefonleitfadenApp() {
     gast_anliegen_detail: {
       question: "Bitte beschreibe das Anliegen möglichst genau:",
       input: true,
+      next: "gast_wohnung"
+    },
+    gast_wohnung: {
+      question: "Welche Wohnung bewohnt der Gast?",
+      input: true,
       next: "gast_detail"
     },
     gast_detail: {
       question: "Bitte trage die Kontaktdaten des Gastes ein:",
       inputs: ["Name", "E-Mail", "Telefonnummer"],
+      required: true,
       next: "ende"
     },
     handwerker_1: { question: "Welches Objekt oder welche Adresse betrifft es?", input: true, next: "handwerker_2" },
