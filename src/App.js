@@ -38,6 +38,12 @@ export default function TelefonleitfadenApp() {
     verlaengerung_4: {
       question: "Bis wann soll verlängert werden? Hinweis: Bitte zusätzlich per E-Mail an buchung@elephant-apartments.com senden",
       input: true,
+      next: "verlaengerung_kontakt"
+    },
+    verlaengerung_kontakt: {
+      question: "Bitte Kontaktdaten aufnehmen:",
+      inputs: ["Name", "E-Mail", "Telefonnummer"],
+      required: true,
       next: "ende"
     },
     gast_1: {
@@ -70,7 +76,13 @@ export default function TelefonleitfadenApp() {
     handwerker_1: { question: "Welches Objekt oder welche Adresse betrifft es?", input: true, next: "handwerker_2" },
     handwerker_2: { question: "Was genau soll gemacht werden?", input: true, next: "handwerker_3" },
     handwerker_3: { question: "Gibt es einen Termin oder Beauftragenden?", input: true, next: "handwerker_4" },
-    handwerker_4: { question: "Wurde bereits mit jemandem gesprochen?", input: true, next: "ende" },
+    handwerker_4: { question: "Wurde bereits mit jemandem gesprochen?", input: true, next: "handwerker_kontakt" },
+    handwerker_kontakt: {
+      question: "Bitte Kontaktdaten aufnehmen:",
+      inputs: ["Name", "E-Mail", "Telefonnummer"],
+      required: true,
+      next: "ende"
+    },
     werbung: {
       question: "Bitte senden Sie Ihr Angebot schriftlich an buchung@elephant-apartments.com",
       options: [{ label: "Gespräch freundlich beenden", next: "ende" }]
@@ -81,6 +93,12 @@ export default function TelefonleitfadenApp() {
       restart: true
     }
   };
+
+  // ... Rest des Codes bleibt unverändert
+
+  // (ab hier bitte die bestehende Implementierung weiterverwenden)
+}
+
   const [step, setStep] = useState("start");
   const [answers, setAnswers] = useState({});
   const [inputValue, setInputValue] = useState("");
